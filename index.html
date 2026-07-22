@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather & Location Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <main>
+
+        <!-- search bar where the user types a city name -->
+        <section class="search-section">
+            <form id="search-form">
+                <input type="text" id="city-input" placeholder="Search for a city..." autocomplete="off" required>
+                <button type="submit">Search</button>
+            </form>
+            <!-- this is where "city not found" or network error messages will show up -->
+            <p id="error-message" class="error-message"></p>
+        </section>
+
+        <!-- loading spinner, hidden by default, shown while we're waiting on the API -->
+        <section id="loading-state" class="loading-state hidden">
+            <p>Loading weather data...</p>
+        </section>
+
+        <!-- main weather results, hidden until we actually have data to show -->
+        <section id="weather-result" class="weather-result hidden">
+            <h2 id="location-name"></h2>
+            <p id="temperature"></p>
+            <p id="conditions"></p>
+            <p id="wind"></p>
+
+            <div id="forecast" class="forecast">
+                <!-- forecast cards get added here dynamically by JS -->
+            </div>
+        </section>
+
+        <!-- list of the last 5 successful searches, clickable to reload that city -->
+        <section class="recent-searches">
+            <h3>Recent Searches</h3>
+            <ul id="recent-list"></ul>
+        </section>
+
+    </main>
+
+    <script type="module" src="app.js"></script>
+
+</body>
+</html>
